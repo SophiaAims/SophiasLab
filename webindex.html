@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>sophia's evil labratory</title>
+<meta name="description" content="Sophia's evil lab.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧪</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: dark;
+    --plum: #1c1829;
+    --plum-2: #262038;
+    --ink: #f1ebf8;
+    --muted: #aaa1bf;
+    --pink: #f5a8cb;
+    --lilac: #bba8f5;
+    --mint: #9fe3c9;
+    --butter: #ffe08a;
+    --sans: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --hand: "Gaegu", "Comic Sans MS", cursive;
+
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+
+  body {
+    margin: 0;
+    background-color: var(--plum);
+    /* graph paper */
+    background-image:
+      radial-gradient(circle, rgba(187, 168, 245, .13) 1px, transparent 1.5px);
+    background-size: 22px 22px;
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+  a:focus-visible { outline: 2px dashed var(--butter); outline-offset: 4px; border-radius: 4px; }
+
+  .page {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem 3rem;
+  }
+
+  /* hero */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1.5rem 2rem;
+    align-items: start;
+    margin-bottom: 4.5rem;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(3rem, 11vw, 5.25rem);
+    font-weight: 800;
+    line-height: .95;
+    letter-spacing: -.035em;
+    font-variation-settings: "opsz" 96;
+  }
+  .name { position: relative; display: inline-block; white-space: nowrap; }
+  .name svg {
+    position: absolute;
+    left: -2%;
+    bottom: -.28em;
+    width: 104%;
+    height: .4em;
+    overflow: visible;
+  }
+  .name path {
+    fill: none;
+    stroke: var(--pink);
+    stroke-width: 5;
+    stroke-linecap: round;
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    animation: draw .9s .35s ease-out forwards;
+  }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+
+  .intro {
+    max-width: 34rem;
+    margin: 2.25rem 0 0;
+    font-size: 1.2rem;
+    color: var(--ink);
+  }
+
+  .stickers {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: .7rem;
+    padding-top: .5rem;
+  }
+  .sticker {
+    font-family: var(--hand);
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1;
+    padding: .45rem .8rem .4rem;
+    color: var(--plum);
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    box-shadow: 2px 3px 0 rgba(0, 0, 0, .35);
+    white-space: nowrap;
+  }
+  .sticker:nth-child(1) { background: var(--butter); transform: rotate(4deg); }
+  .sticker:nth-child(2) { background: var(--mint); transform: rotate(-3deg) translateX(-.6rem); }
+  .sticker:nth-child(3) { background: var(--lilac); transform: rotate(2deg); }
+
+  h2 {
+    margin: 0 0 1.5rem;
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -.02em;
+    line-height: 1.15;
+  }
+
+  section { margin-bottom: 4rem; }
+
+  /* projects */
+  .projects { list-style: none; margin: 0; padding: 0; }
+  .project {
+    position: relative;
+    padding: 1.4rem 1.5rem 1.5rem;
+    background: var(--plum-2);
+    border-left: 4px solid var(--accent);
+    border-radius: 2px 14px 14px 2px;
+  }
+  .project + .project { margin-top: 1.25rem; }
+  .project:nth-child(1) { --accent: var(--pink); }
+  .project:nth-child(2) { --accent: var(--mint); margin-left: 1.5rem; }
+
+  .problem {
+    margin: 0 0 .9rem;
+    font-family: var(--hand);
+    font-size: 1.45rem;
+    line-height: 1.2;
+    color: var(--accent);
+  }
+  .project h3 {
+    margin: 0 0 .35rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+  .project h3 a {
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+  .project h3 a:hover { color: var(--accent); }
+  .project p:last-child { margin: 0; color: var(--muted); }
+
+  /* computer stuff */
+  .skills p { max-width: 36rem; margin: 0 0 1rem; }
+  .hiring {
+    display: inline-block;
+    margin-top: .75rem;
+    font-family: var(--hand);
+    font-size: 1.35rem;
+    color: var(--butter);
+    transform: rotate(-1.5deg);
+  }
+
+  /* now */
+  .now {
+    margin: 0;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: .55rem 1.25rem;
+  }
+  .now dt { font-family: var(--hand); font-size: 1.3rem; line-height: 1.3; color: var(--lilac); }
+  .now dd { margin: 0; align-self: center; }
+
+  footer {
+    padding-top: 2rem;
+    border-top: 2px dotted rgba(187, 168, 245, .35);
+    color: var(--muted);
+    font-size: .95rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: .5rem 1.5rem;
+  }
+  footer nav { display: flex; gap: 1.25rem; }
+  footer a { text-underline-offset: 3px; }
+  footer a:hover { color: var(--pink); }
+
+  @media (max-width: 600px) {
+    .page { padding-top: 3rem; }
+    .hero { grid-template-columns: 1fr; }
+    .stickers { flex-direction: row; flex-wrap: wrap; align-items: center; order: -1; padding: 0; }
+    .sticker:nth-child(2) { transform: rotate(-3deg); }
+    .project:nth-child(2) { margin-left: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .name path { animation: none; stroke-dashoffset: 0; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="hero">
+    <div>
+      <h1>hi, i'm
+        <span class="name">sophia
+          <svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M3 13 C 40 6, 80 16, 120 9 S 180 7, 197 12"/>
+          </svg>
+        </span>
+      </h1>
+      <p class="intro">I'm <span id="age">27</span>, grew up mostly in Texas, and teach high school. I used to compete professionally in video games, and in my free time I like making things.</p>
+    </div>
+    <div class="stickers" aria-hidden="true">
+      <span class="sticker">ex-pro gamer</span>
+      <span class="sticker">teacher</span>
+      <span class="sticker">tech enthusiast</span>
+    </div>
+  </header>
+
+  <section aria-labelledby="made">
+    <h2 id="made">Things I made because something bugged me</h2>
+    <ul class="projects">
+      <li class="project">
+        <p class="problem">The overlay ROTK gives you is ugly, so i made a cute one!</p>
+        <h3><a href="https://sophiaslab.xyz/rotk/">ROTK stats overlay</a></h3>
+        <p>A cuter stats overlay for H1Z1 streamers to live track their stats.</p>
+      </li>
+      <li class="project">
+        <p class="problem">I wanted Chatterino as an OBS dock.</p>
+        <h3><a href="https://chat.sophiaslab.xyz">Chat dock</a></h3>
+        <p>Chatterino in your browser, so you can dock your Twitch chat right inside OBS, while maintaining the same functionality of Chatterino.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="skills" aria-labelledby="computers">
+    <h2 id="computers">The computer stuff</h2>
+    <p>Computers have always just made sense to me. Video editing and graphics, building and repairing PCs, network admin, software engineering. If it is a computer thing, I can probably pick it up fast.</p>
+    <p>Currently teaching high school, but spent 3 years as a network admin.</p>
+    <a class="hiring" href="mailto:skittyisferal@gmail.com">hiring for Tech? have a question? say hi</a>
+  </section>
+
+  <section aria-labelledby="off">
+    <h2 id="off">Off the clock</h2>
+    <dl class="now">
+      <dt>streaming</dt>
+      <dd>Video games on <a href="https://twitch.tv/SophiaAims">Twitch</a>.</dd>
+      <dt>watching</dt>
+      <dd>A lot of movies and TV. Always taking recs</dd>
+      <dt>building</dt>
+      <dd>Whatever annoys me next</dd>
+    </dl>
+  </section>
+
+  <footer>
+    <span>sophia's lab, last tinkered with October 2nd 2026</span>
+    <nav>
+      <a href="https://twitch.tv/SophiaAims">twitch</a>
+      <a href="https://github.com/sophiaaims">github</a>
+    </nav>
+  </footer>
+
+</main>
+<script>
+  const birthday = new Date(1999, 8, 1); // rough bday
+
+  const today = new Date();
+  let age = today.getFullYear() - birthday.getFullYear();
+  const hadBirthday =
+    today.getMonth() > birthday.getMonth() ||
+    (today.getMonth() === birthday.getMonth() && today.getDate() >= birthday.getDate());
+  if (!hadBirthday) age--;
+
+  document.getElementById("age").textContent = age;
+</script>
+</body>
+</html>
